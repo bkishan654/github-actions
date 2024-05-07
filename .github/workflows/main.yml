@@ -5,14 +5,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: self-hosted
-    # This specifies that the job should run on your self-hosted runner with the specified labels
-
+  super-lint:
+    name: Lint code base
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Echo Hello World
-        run: echo "Hello World!!"
-      # This step echoes "Hello World!!" in the log
+      - name: Run Super-Linter
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
