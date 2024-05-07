@@ -1,4 +1,3 @@
-
 name: Hello World 
 
 on: 
@@ -7,15 +6,14 @@ on:
 jobs:
   github:
     name: github-actions
-    runs-on: ${{ fromJSON('["self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+        # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - name: Echo Hello World
         run: | 
           echo "Hello World!!"
           sleep 10
           echo "bye world!!"
-        
-      # This step echoes "Hello World!!" in the log
+
