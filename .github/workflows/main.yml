@@ -5,11 +5,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  super-lint:
+  github:
     name: github-actions
     runs-on: ${{ fromJSON('["self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:
-      - name: copy
       - uses: actions/checkout@v2
       # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
 
