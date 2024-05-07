@@ -2,7 +2,10 @@ name: Hello World
 
 on: 
   workflow_dispatch:
-
+    inputs:
+      name:
+        description: 'Enter your name'
+        required: true
 jobs:
   github:
     name: github-actions
@@ -11,9 +14,8 @@ jobs:
       - uses: actions/checkout@v2
         # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
 
-      - name: Echo Hello World
-        run: | 
-          echo "Hello World!!"
-          sleep 10
-          echo "bye world!!"
+      - name: Echo Trigger Message
+        run: echo "Triggered by ${{ github.event.inputs.name }}"
+
+
 
