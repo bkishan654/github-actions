@@ -7,13 +7,11 @@ on:
 jobs:
   super-lint:
     name: Lint code base
-    runs-on: self-hosted
+    runs-on: ${{ fromJSON('["ubuntu-latest"]')self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Echo Hello World
+        run: echo "Hello World!!"
+      # This step echoes "Hello World!!" in the log
