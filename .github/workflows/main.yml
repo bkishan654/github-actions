@@ -7,7 +7,7 @@ on:
 jobs:
   super-lint:
     name: Lint code base
-    runs-on: ${{ fromJSON('["ubuntu-latest"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - uses: actions/checkout@v2
       # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
