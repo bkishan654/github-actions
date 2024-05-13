@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Enter your name'
+        description: 'Enter  name'
         required: true
 jobs:
   github:
@@ -20,7 +20,7 @@ jobs:
         # This step checks out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - name: Echo Trigger Message
-        run: echo "Triggered by ${{ github.event.inputs.name }}"
+        run: echo "Triggered by user: ${{ github.event.inputs.name }}"
 
 
 
